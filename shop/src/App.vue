@@ -10,7 +10,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  background: #42b983;
 }
 
 nav {
@@ -19,7 +19,7 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  background: #42b983;
 }
 
 nav a.router-link-exact-active {
@@ -39,6 +39,7 @@ body,html{
 .flex{
   display: flex;
   align-items: center;
+  background: #42b983;
 }
 .page_content{
   box-sizing: border-box;
