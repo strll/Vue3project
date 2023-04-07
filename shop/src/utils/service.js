@@ -1,7 +1,8 @@
 import axios from "axios"
 import { ElLoading } from 'element-plus'
 import { ElMessage } from 'element-plus'
-import store from "../store/index.js"
+
+import cookies from "js-cookie";
 let loadingObj = null
 const Service = axios.create({
     timeout: 80000,
@@ -9,7 +10,10 @@ const Service = axios.create({
     headers:{
         "Content-type":"application/json;charset=utf-8",
         // "Authorization":store.state.uInfo.userInfo.token
-    }
+        "satoken": cookies.get("satoken")
+    },
+     withCredentials: true,
+    changeOrigin: true,             //是否跨域
 })
 // 请求拦截-增加loading,对请求做统一处理
 Service.interceptors.request.use(config=>{

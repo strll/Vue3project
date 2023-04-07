@@ -7,8 +7,10 @@ import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 import ElementUI from 'element-plus';//导入组件库
-import 'element-plus/theme-chalk/index.css';//导入组件相关样式
-
+import 'element-plus/theme-chalk/index.css';
+import axios from "axios";
+//导入组件相关样式
+axios.defaults.withCredentials = true
 
 const app =createApp(App)
 // element icon 注册

@@ -62,15 +62,14 @@ export default {
       num: count,
     })
     const login = function () {
-
-
-
       loginApi(this.loginData).then(response => {
         // 处理返回数据
     if (response.data!=null){
-      store.commit('setUserInfo', response.data);
-      localStorage.setItem('loginData',JSON.stringify(response.data))
-      cookies.set("satoken",JSON.stringify(response.data))
+
+      store.commit('setisLogin',true);
+      console.log(response.data)
+      cookies.set("satoken",response.data)
+
       router.push({
         path:'/'
       })

@@ -5,6 +5,7 @@ import left from "@/views/left";
 import on from "@/views/on";
 import user from "@/views/user";
 import store from "../store/index.js"
+import root_user from "@/views/root_user";
 
 const routes = [
 
@@ -29,6 +30,11 @@ const routes = [
         path:"/user",
         name:"user",
         component: user
+      },
+      {
+        path: "/rootuser",
+        name: "rootuser",
+        component: root_user
       }
     ]
   },
@@ -58,9 +64,8 @@ router.beforeEach((to,form,next)=>{
    * next:只有执行next()页面才会进行跳转
    */
   // 判断用户是否登录
-  console.log("store",store.state)
-  const uInfo = store.state.userInfo
-  if(!uInfo.isLogin){
+  const uInfo = store.state.isLogin
+  if(!uInfo){
     // 未登录,跳转到login
     if(to.path==="/login"){
       next()

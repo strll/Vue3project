@@ -24,7 +24,7 @@
               <span>账号管理</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="/user">管理员列表</el-menu-item>
+              <el-menu-item index="/rootuser">管理员列表</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group>
               <el-menu-item index="/user">app用户列表</el-menu-item>
