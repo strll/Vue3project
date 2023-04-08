@@ -53,7 +53,6 @@ export default {
       val=val-1;
       data.rearray=[]
       data.rearray= data.array.slice(val*data.pagesize,(val+1)*data.pagesize)
-
     }
       return {
         ...toRefs(data),

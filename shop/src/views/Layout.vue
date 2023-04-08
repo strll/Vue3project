@@ -45,22 +45,22 @@
               <span>群聊管理</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="/goods">群聊功能列表</el-menu-item>
+              <el-menu-item index="/groupTalk">群聊功能列表</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group>
-              <el-menu-item index="/goods">学习功能列表</el-menu-item>
+              <el-menu-item index="/groupStudy">学习功能列表</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group>
-              <el-menu-item index="/goods">随即输出食物功能</el-menu-item>
+              <el-menu-item index="/groupTodayeat">随即输出食物功能</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group>
-              <el-menu-item index="/goods">黑名单功能</el-menu-item>
+              <el-menu-item index="/groupBlack">黑名单功能</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group>
-              <el-menu-item index="/goods">聊天功能</el-menu-item>
+              <el-menu-item index="/groupGPTtalk">GPT聊天功能</el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group>
-              <el-menu-item index="/goods">删除功能</el-menu-item>
+              <el-menu-item index="/groupDelete">删除功能</el-menu-item>
             </el-menu-item-group>
           </el-sub-menu>
         </el-menu>
@@ -78,15 +78,19 @@
 <script>
 import router from "@/router";
 import cookies from 'js-cookie'
+import {loginOutApi} from "@/utils/request";
 export default {
   name: "abc",
   setup(){
     const loginOut=function (){
-      localStorage.removeItem('loginData')
-      cookies.remove("satoken")
-      router.push({
-        path: "/login"
-      })
+
+      loginOutApi().then(()=>{
+        localStorage.removeItem('loginData')
+        cookies.remove("satoken")
+        router.push({
+          path: "/login"
+        })
+      });
 
     }
       return {

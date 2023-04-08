@@ -1,11 +1,17 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../components/HomeView.vue'
 import abc from '../views/Layout.vue'
-import left from "@/views/left";
+import left from "@/views/TodayEat";
 import on from "@/views/on";
 import user from "@/views/user";
 import store from "../store/index.js"
 import root_user from "@/views/root_user";
+import groupTodayeat from "@/views/group/groupTodayeat";
+import groupBlack from "@/views/group/groupBlack";
+import groupDelete from "@/views/group/groupDelete";
+import groupGPTtalk from "@/views/group/groupGPTtalk";
+import groupstudy from "@/views/group/groupStudy";
+import grouptalk from "@/views/group/groupTalk";
 
 const routes = [
 
@@ -35,7 +41,37 @@ const routes = [
         path: "/rootuser",
         name: "rootuser",
         component: root_user
-      }
+      },
+      {
+        path: "/groupTodayeat",
+        name: "groupTodayeat",
+        component: groupTodayeat
+      },
+      {
+        path: "/groupBlack",
+        name: "groupBlack",
+        component: groupBlack
+      },
+      {
+        path: "/groupDelete",
+        name: "groupDelete",
+        component: groupDelete
+      },
+      {
+        path: "/groupGPTtalk",
+        name: "groupGPTtalk",
+        component: groupGPTtalk
+      },
+      {
+        path: "/groupStudy",
+        name: "groupStudy",
+        component: groupstudy
+      },
+      {
+        path: "/groupTalk",
+        name: "groupTalk",
+        component: grouptalk
+      },
     ]
   },
   {

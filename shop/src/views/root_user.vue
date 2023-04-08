@@ -50,6 +50,7 @@
 import {reactive, ref, toRefs} from "vue";
 import {addAdmin, deleteAdmin, getAdmin} from "@/utils/request";
 import async from "async";
+import cookies from "js-cookie";
 
 export default {
   name: "root_user",
@@ -80,6 +81,8 @@ export default {
       // data.tableData.splice(index, 1)
     }
     const getroot=function(){
+      console.log("cookie是")
+      console.log(cookies.get("satoken"))
       getAdmin().then(response=> {
          data.tableData=response.data
       })

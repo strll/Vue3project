@@ -1,7 +1,7 @@
 import axios from "axios"
 import { ElLoading } from 'element-plus'
 import { ElMessage } from 'element-plus'
-
+import store from "../store/index.js"
 import cookies from "js-cookie";
 let loadingObj = null
 const Service = axios.create({
@@ -9,14 +9,17 @@ const Service = axios.create({
     baseURL: "http://localhost:8091/",
     headers:{
         "Content-type":"application/json;charset=utf-8",
-        // "Authorization":store.state.uInfo.userInfo.token
-        "satoken": cookies.get("satoken")
+        //  "Authorization": "satoken="+store.getters.getstoresatoken,
+        // "satoken": "satoken="+store.getters.getstoresatoken
     },
      withCredentials: true,
     changeOrigin: true,             //是否跨域
+
 })
 // 请求拦截-增加loading,对请求做统一处理
 Service.interceptors.request.use(config=>{
+        // config.headers.Authorization="satoken="+store.getters.getstoresatoken,
+        config.headers.satoken=store.getters.getstoresatoken
     loadingObj=ElLoading.service({
         lock: true,
         text: 'Loading',
@@ -28,7 +31,6 @@ Service.interceptors.request.use(config=>{
 Service.interceptors.response.use(response=>{
     loadingObj.close()
     const data = response.data
-
     if(data.code!=200 && data.code!=201){
         ElMessage.error(data.msg||"服务器出错")
         // 请求出错

@@ -64,10 +64,21 @@ export default {
     const login = function () {
       loginApi(this.loginData).then(response => {
         // 处理返回数据
+        console.log("--------------------")
     if (response.data!=null){
 
-      store.commit('setisLogin',true);
+      console.log("之前存储的内容是")
+      console.log( store.getters.getstoresatoken)
+
+      store.commit("setstoresatoken",response.data)
+      console.log("收到的内容是")
       console.log(response.data)
+      console.log("store.state.storesatoken是")
+      console.log(store.state.storesatoken)
+      store.commit('setisLogin',true);
+      console.log("存储的内容是")
+      console.log( store.getters.getstoresatoken)
+
       cookies.set("satoken",response.data)
 
       router.push({
