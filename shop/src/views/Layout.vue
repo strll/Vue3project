@@ -38,6 +38,9 @@
             <el-menu-item-group>
               <el-menu-item index="/left">存储食物列表</el-menu-item>
             </el-menu-item-group>
+            <el-menu-item-group>
+              <el-menu-item index="/message">信息列表</el-menu-item>
+            </el-menu-item-group>
           </el-sub-menu>
           <el-sub-menu index="3">
             <template #title>

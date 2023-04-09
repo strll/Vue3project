@@ -12,6 +12,7 @@ import groupDelete from "@/views/group/groupDelete";
 import groupGPTtalk from "@/views/group/groupGPTtalk";
 import groupstudy from "@/views/group/groupStudy";
 import grouptalk from "@/views/group/groupTalk";
+import message from "@/views/message";
 
 const routes = [
 
@@ -71,7 +72,11 @@ const routes = [
         path: "/groupTalk",
         name: "groupTalk",
         component: grouptalk
-      },
+      },{
+      path: "/message",
+        name: "message",
+        component: message
+      }
     ]
   },
   {

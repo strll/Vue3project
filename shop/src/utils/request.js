@@ -1,4 +1,28 @@
 import {post,put,get} from "./service"
+
+export const getAllmessage=()=>{
+    // eslint-disable-next-line no-undef
+    return get({
+        url:`/message/allmessage`,
+    })
+}
+
+export const getLikemessage=(value)=>{
+    // eslint-disable-next-line no-undef
+    return get({
+        url:`/message/likemessage?value=${value}`,
+    })
+}
+
+export const Deletemessage=(id,url)=>{
+    // eslint-disable-next-line no-undef
+    return get({
+        url:`/message/deletemessage?id=${id}&url=${url}`,
+    })
+}
+
+
+
 //删除
 export const getmessagedeleteGroup=()=>{
     // eslint-disable-next-line no-undef
